@@ -1,5 +1,5 @@
-LSTM
-++++
+Better LSTM PyTorch
++++++++++++++++++++
 An LSTM that incorporates best practices, designed to be fully compatible with the PyTorch LSTM API.
 Implements the following best practices:
 - Weight dropout
@@ -19,7 +19,7 @@ Installation
 ============
 Install via pip.
 
-`$ pip install foo`
+`$ pip install .`
 
 Requires PyTorch version 1.0 or higher.
 
