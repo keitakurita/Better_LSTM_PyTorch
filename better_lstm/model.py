@@ -71,7 +71,8 @@ class LSTM(nn.LSTM):
         for name, param in self.named_parameters():
             if "weight_hh" in name:
                 getattr(self, name).data = \
-                    torch.nn.functional.dropout(param, p=self.dropoutw, training=self.training)
+                    torch.nn.functional.dropout(param.data, p=self.dropoutw,
+                                                training=self.training).contiguous()
 
     def forward(self, input, hx=None):
         self._drop_weights()
