@@ -20,9 +20,9 @@ class VariationalDropout(nn.Module):
             return x
 
         if self.batch_first:
-            m = x.data.new(x.size(0), 1, x.size(2)).bernoulli_(1 - self.dropout) == 1.
+            m = x.data.new(x.size(0), 1, x.size(2)).bernoulli_(1 - self.dropout)
         else:
-            m = x.data.new(1, x.size(1), x.size(2)).bernoulli_(1 - self.dropout) == 1.
+            m = x.data.new(1, x.size(1), x.size(2)).bernoulli_(1 - self.dropout)
         x = x.masked_fill(m == 0, 0) / (1 - self.dropout)
         return x
 
