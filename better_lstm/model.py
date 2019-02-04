@@ -63,7 +63,7 @@ class LSTM(nn.LSTM):
                 nn.init.orthogonal_(param.data)
             elif "weight_ih" in name:
                 nn.init.xavier_uniform_(param.data)
-            elif "bias" in name:
+            elif "bias" in name and self.unit_forget_bias:
                 nn.init.zeros_(param.data)
                 param.data[self.hidden_size:2 * self.hidden_size] = 1
 
